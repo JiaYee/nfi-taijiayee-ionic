@@ -1,0 +1,7 @@
+{
+  "name": "nfi-taijiayee-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

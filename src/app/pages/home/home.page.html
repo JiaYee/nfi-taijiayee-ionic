@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Crypto Tracker </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="cryptoList">
+    <ion-item *ngFor="let cryptoObj of cryptoList">
+      <ion-label> {{ cryptoObj.name }} </ion-label>
+      <ion-button slot="end" fill="clear" [color]="getColor(cryptoObj)">
+        <ion-icon
+          slot="start"
+          name="arrow-up"
+          *ngIf="cryptoObj.change > 0"
+        ></ion-icon>
+        <ion-icon
+          slot="start"
+          name="arrow-down"
+          *ngIf="cryptoObj.change < 0"
+        ></ion-icon>
+        <ion-label> {{ cryptoObj.change | number : '1.2-2'}}% </ion-label>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
